@@ -1,0 +1,352 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>病例资料</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=３" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<script src="fonts/iconfont.js"></script>
+		<style type="text/css">
+			html {
+				background-color: #fff;
+			}
+			
+			.icon {
+				/* 通过设置 font-size 来改变图标大小 */
+				width: 1em;
+				height: 1em;
+				/* 图标和文字相邻时，垂直对齐 */
+				vertical-align: -0.15em;
+				/* 通过设置 color 来改变 SVG 的颜色/fill */
+				fill: currentColor;
+				/* path 和 stroke 溢出 viewBox 部分在 IE 下会显示
+             normalize.css 中也包含这行 */
+				overflow: hidden;
+			}
+			
+			#top::after,
+			#top::before {
+				content: '';
+				display: block;
+				clear: both;
+				visibility: hidden;
+			}
+			
+			.mui-backdrop {
+				background-color: rgba(0, 0, 0, .8);
+			}
+			
+			ul {
+				list-style: none;
+				padding-left: 0;
+			}
+			
+			#data-item .image-list {
+				width: 4.5rem;
+				display: flex;
+				flex-flow: row wrap;
+			}
+			
+			#data-item .image-list .image-list .div-image {
+				width: 1.4rem;
+				height: 1.4rem;
+				background-position: center;
+				background-repeat: no-repeat;
+				background-size: cover;
+				background-color: #6641E2;
+				background-image: url(images/hometop.jpg);
+			}
+			
+			#data-item .date {
+				position: relative;
+				margin-left: .3rem;
+			}
+			
+			#data-item .date::before {
+				content: '';
+				display: block;
+				width: .28rem;
+				height: .28rem;
+				background: #3ab5a3;
+				background-size: .28rem .28rem;
+				border-radius: .14rem;
+				position: absolute;
+				left: -0.4rem;
+				top: 50%;
+				transform: translateY(-60%);
+				transform: -webkit-translateY(-50%);
+			}
+			
+			#data-item .item-description {
+				font-size: .3rem;
+				text-indent: .24rem;
+			}
+			
+			#data-item .image-list {
+				width: 70%;
+				margin-left: .5rem;
+				margin-left: .62rem;
+				display: flex;
+				flex-flow: row wrap;
+				/*justify-content: space-between;*/
+			}
+			
+			#data-item .image-list li {
+				width: 30%;
+				display: block;
+				margin-top: .2rem;
+				margin-right: .12rem;
+			}
+			
+			#data-item .div-image {
+				width: 100%;
+				height: 1.37rem;
+				/*	background-image: url('https://mdn.mozillademos.org/files/7693/catfront.png');*/
+				background-repeat: no-repeat;
+				background-position: center;
+				background-size: contain;
+			}
+			
+			.add-icon {
+				color: #28B7A3;
+				font-size: .4rem;
+				margin-left: .2rem;
+				padding-top: .04rem;
+			}
+			
+			#mask {
+				position: fixed;
+				top: 1rem;
+				left: 0;
+				right: 0;
+				height: 8rem;
+				display: none;
+				background-color: #222222;
+				z-index: 999999;
+			}
+			
+			#mask .mui-slider {
+				position: absolute;
+				top: 0rem;
+				bottom: 0rem;
+				left: 0;
+				right: 0;
+			}
+			
+			#mask .mui-slider-item a {
+				width: 100%;
+				height: 8rem;
+				position: relative;
+			}
+			
+			#mask .mui-slider-item img {
+				max-width: 100%;
+				max-height: 100%;
+				width: auto;
+				height: auto;
+				margin: 0 auto;
+				display: block;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+			}
+		</style>
+	</head>
+
+	<body>
+		<script src="js/mui.min.js"></script>
+		<script src="js/jquery-3.1.1.min.js"></script>
+		<script src="js/base.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			mui.init()
+		</script>
+
+		<section id="top">
+			<div id="addImage" style="height: .90rem; padding-left: 5rem; padding-top: .20rem; position: relative; background-color: #f4f4f4;">
+				添加
+				<svg class="icon add-icon" aria-hidden="true">
+					<use xlink:href="#icon-tupian"></use>
+				</svg>
+			</div>
+		</section>
+		<section id="data-item">
+			<ul id="data-ul" class="mui-table-view">
+				<!--<li class="mui-table-view-cell">
+					<div class="title">
+						<p class="date">6月１日</p>
+					</div>
+					<p class="item-description">第三次去人民医院检查的报告单</p>
+					<ul class="image-list">
+						<li>
+							<div class="div-image"></div>
+						</li>
+						<li>
+							<div class="div-image"></div>
+						</li>
+						<li>
+							<div class="div-image"></div>
+						</li>
+						<li>
+							<div class="div-image"></div>
+						</li>
+
+					</ul>
+				</li> -->
+			</ul>
+		</section>
+		<section id="mask" class=".mui-backdrop">
+			<div class="mui-slider">
+				<div class="mui-slider-group">
+					<div class="mui-slider-item">
+						<a href="#"><img item='0' src="" /></a>
+					</div>
+					<div class="mui-slider-item">
+						<a href="#"><img item='1' src="" /></a>
+					</div>
+					<div class="mui-slider-item">
+						<a href="#"><img item='2' src="" /></a>
+					</div>
+					<div class="mui-slider-item">
+						<a href="#"><img item='3' src="" /></a>
+					</div>
+					<div class="mui-slider-item">
+						<a href="#"><img item='4' src="" /></a>
+					</div>
+					<div class="mui-slider-item">
+						<a href="#"><img item='5' src="" /></a>
+					</div>
+					<div class="mui-slider-item">
+						<a href="#"><img item='6' src="" /></a>
+					</div>
+					<div class="mui-slider-item">
+						<a href="#"><img item='7' src="" /></a>
+					</div>
+					<div class="mui-slider-item">
+						<a href="#"><img item='8' src="" /></a>
+					</div>
+				</div>
+			</div>
+		</section>
+	</body>
+	<script src="js/mobileRemSet.js"></script>
+	<script src="js/jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/base.js"></script>
+	<script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		mui.ready(function() {
+			mobileRemSet(window, 640);
+			var networkArray = [];
+			var patient_uuid;
+			mui.ajax({
+				url: apiur + "/originalSource/medicalRecordList",
+				data: {
+					patient_uuid: patient_uuid || 'e08aae28a45d41e9a1ba7cf46b4e640c',
+					page: 0,
+					pagecount: 20
+				},
+				contentType: "application/x-www-form-urlencoded",
+				type: 'POST',
+				dataType: 'json',
+				success: function(result) {
+					console.log(JSON.stringify(result.data))
+					networkArray = result.data;
+					//先创建文档碎片
+					var oUl = document.getElementById('data-ul');
+					//最后一次性添加到document中
+					//	debugger;
+					if(result.result == 0) {
+						var oFragmeng = document.createDocumentFragment();
+						for(var i = 0; i < result.data.length; i++) {
+							var oLi = document.createElement("li");
+							oLi.setAttribute("class", "mui-table-view-cell")
+							oLi.setAttribute("order", i);
+							var oDiv = document.createElement('div');
+							oDiv.setAttribute('class', 'title');
+							var oP = document.createElement('p');
+							var textEl = document.createTextNode(result.data["" + i].create_time);
+							oP.appendChild(textEl);
+							oP.setAttribute('class', 'date')
+							oDiv.appendChild(oP);
+							var oDescP = document.createElement('p');
+							var despEl = document.createTextNode(result.data['' + i].description);
+							oDescP.appendChild(despEl);
+							oLi.appendChild(oDiv);
+							oLi.appendChild(oDescP);
+							var OImageUL = document.createElement('ul');
+							OImageUL.setAttribute('class', 'image-list');
+							for(var j = 0; j < result.data['' + i].images.length; j++) {
+								var tempLi = document.createElement('li');
+								var tempDiv = document.createElement('div');
+								tempDiv.setAttribute('class', 'div-image');
+								tempDiv.setAttribute('itemIndex', j);
+								var tempImageUrl = "url(" + GET_FILE_URL + result.data['' + i].images["" + j].picPath2 + ")";
+								tempDiv.style.backgroundImage = tempImageUrl;
+								tempLi.appendChild(tempDiv);
+								OImageUL.appendChild(tempLi);
+							}
+							oLi.appendChild(OImageUL);
+							//先附加在文档碎片中
+							oFragmeng.appendChild(oLi);
+						}
+						oUl.appendChild(oFragmeng);
+						oFragmeng = null;
+
+						//		mui.alert('发送验证码ＯＫ', '消息提示');
+					} else {
+						mui.alert('参数错误', '消息提示');
+					}
+				},
+				error: function(XMLHttpRequest, textStatus, errorThrown) {
+					mui.alert('服务器正忙，请稍后再试', '消息提示');
+				},
+				complete: function(XMLHttpRequest, textStatus) {
+					this; // 调用本次AJAX请求时传递的options参数
+				}
+			});
+
+			mui('#data-ul').on('tap', '.div-image', function() {
+				var bigIndex = $(this).parent().parent().parent(".mui-table-view-cell").attr('order')
+				var smallIndex = this.getAttribute("itemIndex");
+				var $tempNode = $(".mui-slider-group").children();
+
+				$("#mask img").attr('src', function() {
+					if(networkArray[bigIndex].images[this.attributes['0'].nodeValue]) {
+						return GET_FILE_URL + networkArray[bigIndex].images[this.attributes['0'].nodeValue].filePath;
+					}
+					return '';
+				})
+				$("#mask img").filter(function() {
+						return this.attributes['1'].nodeValue === '';
+				}).closest('.mui-slider-item').remove();
+				$('#mask').css('display', 'block');
+				var mask = mui.createMask(function() {
+					$(".mui-slider-group").html($tempNode);
+					$('#mask').css('display', 'none');
+				}); //callback为用户点击蒙版时自动执行的回调；
+				mask.show(); //显示遮罩
+
+				$('#mask').css('display', 'block');
+				//				//获得slider插件对象
+				var gallery = mui('.mui-slider');
+				gallery.slider().gotoItem(smallIndex); //跳转到第index张图片，index从0开始；
+
+			})
+			
+			mui('#top').on('tap','#addImage',function(){
+				
+				wx.chooseImage({
+				    count: 1, // 默认9
+				    sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
+				    sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
+				    success: function (res) {
+				        var localIds = res.localIds; // 返回选定照片的本地ID列表，localId可以作为img标签的src属性显示图片
+				    }	
+				});							
+						
+			})
+		});
+	</script>
+
+</html>

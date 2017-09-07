@@ -1,0 +1,186 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>病例档案</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<style type="text/css">
+			#doctor-team .mui-table-view-cell {
+				height: .7rem;
+			}
+			
+			#doctor-team .mui-badge-succes {
+				width: .7rem;
+				height: .35rem;
+				background-color: seagreen;
+			}
+			
+			#icon {
+				border-radius: .06rem;
+			}
+			
+			#doctor-team .mui-table-view-cell:after {
+				height: 0;
+			}
+			
+			#desc {
+				font-size: .3rem;
+			}
+			
+			#doctor-team .subtitle {
+				font-size: .2rem;
+				color: #CCCCCC;
+				float: right;
+				margin-right: .4rem;
+			}
+			
+			#doctor-team .subtitle img {
+				display: inline-block;
+				width: .5rem;
+				height: .5rem;
+				border-radius: .25rem;
+				margin-right: .1rem;
+				vertical-align: top;
+				background-size: cover;
+			}
+			
+			#doctor-team .mui-table-view-cell {
+				padding: .14rem .15rem .10rem .15rem;
+			}
+			
+			#doctor-team .mui-navigate-right:after {
+				right: .05rem;
+			}
+			
+			.mui-table-view-cell .mui-navigate-right div:nth-of-type(1) {
+				display: inline-block;
+			}
+			
+			#doctor-team .title:nth-child(1) {
+				margin-left: .3rem;
+			}
+			
+			#box-list .flex {
+				display: flex;
+				flex-flow: row wrap;
+				justify-content: space-between;
+			}
+			
+			ul {
+				list-style-type: none;
+			}
+			
+			#box-list .flex {
+				width: 100%;
+				padding-left: 0;
+			}
+			
+			#box-list .flex li {
+				width: 50%;
+				height: 3.1rem;
+				border: 0.01rem solid #EFEFF4;
+				background-color: #fff;
+				text-align: center;
+				padding-top: .6rem;
+			}
+			
+			#box-list .flex p {
+				color: #101010;
+				font-size: .3rem;
+				margin-top: .3rem;
+			}
+	
+			
+			#box-list img {
+				width: 65%;
+			}
+			
+		</style>
+
+	</head>
+
+	<body>
+		<script src="js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init()
+		</script>
+
+		<ul id="doctor-team" class="mui-table-view">
+			<li class="mui-table-view-cell">
+				<a class="mui-navigate-right">
+					<div class="title">
+						<span id="desc" 　class="name-descripiton">钱市勋　男　65岁</span>　<span id="icon" class="mui-badge mui-badge-success">肺癌</span>
+					</div>
+					<span class="subtitle">患者资料</span>
+				</a>
+			</li>
+			<li class="mui-table-view-cell">
+				<a class="mui-navigate-right">
+					<div class="title">
+						张医生的团队
+					</div>
+					<div class="img-list subtitle">
+						<img src="images/vip.png"></img>
+						<img src="images/vip.png"></img>
+						<img src="images/vip.png"></img>
+					</div>
+				</a>
+			</li>
+		</ul>
+
+		<section id="box-list">
+			<ul class="flex">
+				<li><img src="images/hometop.jpg" alt="" />
+					<p>病例资料</p>
+				</li>
+				<li><img src="images/hometop.jpg" alt="" />
+					<p>随访报告</p>
+				</li>
+				<li><img src="images/hometop.jpg" alt="" />
+					<p>我的量表</p>
+				</li>
+			</ul>
+		</section>
+
+	</body>
+
+	<script>
+		var remDeviceCount = 640;
+		! function(d) {
+			var c = d.document;
+			var a = c.documentElement;
+			var b = d.devicePixelRatio;
+			var f;
+
+			function e() {
+				var h = a.getBoundingClientRect().width,
+					g;
+				if(b === 1) {
+					h = remDeviceCount
+				}
+				if(h > remDeviceCount) h = remDeviceCount; //设置基准值的极限值
+				g = h / (remDeviceCount * 0.01);
+				a.style.fontSize = g + "px"
+			}
+
+			if(b > 2) {
+				b = 3
+			} else {
+				if(b > 1) {
+					b = 2
+				} else {
+					b = 1
+				}
+			}
+			a.setAttribute("data-dpr", b);
+			d.addEventListener("resize", function() {
+				clearTimeout(f);
+				f = setTimeout(e, 200)
+			}, false);
+			e()
+		}(window);
+	</script>
+
+</html>

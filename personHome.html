@@ -1,0 +1,212 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>个人主页吗？</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<style type="text/css">
+			.mui-card {
+				background-image: url('./image/hometop,.jpg');
+				background-size: cover;
+				background-position: center;
+				background-repeat: no-repeat;
+				margin: 0;
+			}
+			
+			.mui-table-view {
+				background-color: inherit;
+			}
+			
+			.mui-card-header {
+				position: relative;
+			}
+			
+			.mui-icon-gear {
+				position: absolute;
+				right: 15px;
+				top: 15px;
+			}
+			
+			.mui-ellipsis {
+				font-size: 12px;
+			}
+			
+			.mui-table-view-cell>a:not(.mui-btn) {
+				display: inline-block;
+			}
+			
+			.mui-table-view .mui-media-body {
+				display: inline-block;
+			}
+			/* vip  background Image*/
+			
+			.vipclass {
+				width: 14px;
+				height: 14px;
+				display: inline-block;
+				background-color: darkblue;
+				background-image: url('./vip.png');
+				background-position: center;
+				background-size: cover;
+				background-repeat: no-repeat;
+			}
+			
+			.mui-media-body a {
+				color: brown;
+			}
+			
+			.mui-navigate-right:after {
+				font-size: 26px;
+			}
+			
+			.mui-table-view .mui-media-object {
+				height: 60px;
+				max-width: 60px;
+				line-height: 60px;
+			}
+			
+			.mui-card-footer:before,
+			.mui-card-header:after {
+				height: 0;
+			}
+			
+			.item-ul .mui-table-view-cell {
+				height: 44px;
+				background-color: white;
+				line-height: 30px;
+			}
+			
+			.item-ul .mui-media-object {
+				height: 30px;
+				max-width: 30px;
+				line-height: 0px;
+			}
+			
+			.item-ul .mui-navigate-right {
+				color: black;
+			}
+			
+			.section {
+				margin-bottom: 20px;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<div class="mui-card">
+			<!--页眉，放置标题-->
+			<div class="mui-card-header">
+				<span class="mui-icon mui-icon-gear"></span>
+			</div>
+			<!--内容区-->
+			<div class="mui-card-content">
+				<ul class="mui-table-view">
+					<li class="mui-table-view-cell mui-media">
+						<a href="javascript:;">
+							<!--<img class="mui-media-object mui-pull-left" src="./image/hometop.jpg">-->
+							<div class="mui-media-body">
+								幸福
+								<p class='mui-ellipsis'>
+									<a class="mui-navigate-right">能和心爱的人</a>
+								</p>
+								<p class='mui-ellipsis'>能和心爱的人一起 <span class="vipclass"></span></p>
+
+							</div>
+						</a>
+					</li>
+				</ul>
+			</div>
+			<!--页脚，放置补充信息或支持的操作-->
+			<div class="mui-card-footer"></div>
+		</div>
+
+		<div class="section">
+
+			<ul class="mui-table-view item-ul">
+				<li class="mui-table-view-cell mui-media">
+					<a href="javascript:;">
+						<img class="mui-media-object mui-pull-left" src="./image/hometop.jpg">
+						<div class="mui-media-body">
+							<a class="mui-navigate-right">能和心爱的人</a>
+
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<a href="javascript:;">
+						<img class="mui-media-object mui-pull-left" src="./image/hometop.jpg">
+						<div class="mui-media-body">
+							<a class="mui-navigate-right">能和心爱的人</a>
+
+						</div>
+					</a>
+				</li>
+
+			</ul>
+
+		</div>
+		<div class="section">
+
+			<ul class="mui-table-view item-ul">
+				<li class="mui-table-view-cell mui-media">
+					<a href="javascript:;">
+						<img class="mui-media-object mui-pull-left" src="./image/hometop.jpg">
+						<div class="mui-media-body">
+							<a class="mui-navigate-right">能和心爱的人</a>
+
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<a href="javascript:;">
+						<img class="mui-media-object mui-pull-left" src="./image/hometop.jpg">
+						<div class="mui-media-body">
+							<a class="mui-navigate-right">能和心爱的人</a>
+
+						</div>
+					</a>
+				</li>
+
+			</ul>
+		</div>
+
+	</body>
+	<script src="js/mui.min.js"></script>
+	<script src="js/mobileRemSet.js"></script>
+	<script src="js/base.js"></script>
+	<script type="text/javascript">
+		mui.init()
+		mui.ready(function() {
+			mobileRemSet(window, 640);
+			var useID;
+			mui.ajax({
+					url: apiur + "/patientInfo/getUserInfo",
+					data: {
+						id: useID || '79', //  useiD: 187号
+					},
+					contentType: "application/x-www-form-urlencoded",
+					type: 'POST',
+					dataType: 'json',
+					success: function(result) {
+
+						console.log(JSON.stringify(result.data));
+
+						//						mui.alert('发送验证码ＯＫ', '消息提示');
+					} else {
+						mui.alert('参数错误', '消息提示');
+					}
+				},
+				error: function(XMLHttpRequest, textStatus, errorThrown) {
+					mui.alert('服务器正忙，请稍后再试', '消息提示');
+				},
+				complete: function(XMLHttpRequest, textStatus) {
+					this; // 调用本次AJAX请求时传递的options参数
+				}
+			})
+		});
+	</script>
+
+</html>

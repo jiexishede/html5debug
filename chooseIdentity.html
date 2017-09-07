@@ -1,0 +1,110 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>身份选择</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<style type="text/css">
+			body {
+				background-color: #fff;
+				height: 6.67rem;
+				position: relative;							
+			}
+		   #congratulation {
+		   	margin-top: .6rem;
+		   }
+		   #congratulation .top-image {
+		   	 height: 1.65rem;
+		   	 width: 1.45rem;
+		   	 background-image: url(images/hometop.jpg);
+		   	 background-position: center;
+		   	 background-repeat: no-repeat;
+		   	 background-size: contain;
+		   	 margin: 0 auto;
+		   }
+		   #congratulation p {
+		   	font-size: .14rem;
+		   	line-height: .20rem;
+		   	color: #000000;
+		   	text-align: center;
+		   	margin-top: .25rem;
+		   }
+		   
+		   #choose {
+		   	position: absolute;
+		   	bottom:0;
+		   	left:0;
+		   	right:0;
+		   	height: 3rem;
+		   	width: 3.75rem;
+		   }
+		   
+		   #choose  p{
+		   	color: #000;
+		   	font-size: .18rem;
+		   	text-align: center;
+			line-height: .26rem;
+		   }
+		   
+		   #choose .mui-btn {
+		   	 height: .55rem;
+		   	 width: 3.75rem;
+		   	 line-height: .42rem;
+		   	 color: #000000;
+		   	 border-radius: .06rem;
+		   	 font-size: .18rem;
+		   	
+		   }
+		   
+		   #choose .mui-btn-success {
+		   	 background-color: #a9d472;
+		   	 border-color: #a9d472;
+		   }
+		   
+		   #choose .doctor {
+		   	margin-bottom: .6rem;
+		   }
+		   #choose .not-doctor {
+		   	margin-bottom: .26rem;
+		   }
+		   
+		   #choose .bottom-btn {
+		   	position: absolute;
+		   	bottom: 0;
+		   	left: 0;
+		   	right: 0;
+		   	font-size: .14rem;
+		   }
+		   
+		   
+		</style>
+	</head>
+
+	<body>
+		<section id="congratulation">
+			<div class="top-image"></div>
+		    <p>恭喜您，注册成功！请选择身份完善个人信息。</p>
+		</section>
+	　　	<section id="choose">
+		　　<p>请选择身份</p>
+		　　<button type="button" class="mui-btn mui-btn-success not-doctor">患者/家属</button>
+		<button type="button" class="mui-btn  doctor">医生</button>
+			
+		<button type="button" class="mui-btn mui-btn-success bottom-btn">下一步</button>		
+	</section>
+		
+		
+		<script src="js/mui.min.js"></script>
+		<script src="js/mobileRemSet.js"></script>
+		<script type="text/javascript">
+			mui.init()
+				mui.ready(function() {
+			mobileRemSet(window, 375);
+		});
+		</script>
+
+	</body>
+
+</html>

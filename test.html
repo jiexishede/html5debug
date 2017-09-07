@@ -1,0 +1,134 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>病例资料</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<style type="text/css">
+			/*#top::after,
+			#top::before {
+				content: '';
+				display: block;
+				clear: both;
+				visibility: hidden;
+			}*/
+			
+			#addImage::after {
+				content: '';
+				display: block;
+				width: .4rem;
+				height: .35rem;
+				background: url('./images/vip.png') no-repeat red;
+				background-size: .40rem .35rem;
+				position: absolute;
+				right: .2rem;
+				top: 50%;
+				transform: translateY( -50%);
+				transform: -webkit-translateY(-50%);
+				/*移动端都是webkit 内核　，只要适配　webkit translate 就可以了*/
+			}
+			
+			#data-item {
+				margin-top: 4rem;
+			}
+			
+			ul {
+				list-style: none;
+				padding-left: 0;
+			}
+			
+			#data-item .image-list {
+				width: 4.5rem;
+				display: flex;
+				flex-flow: row wrap;
+				background-color: yellow;
+			}
+			
+			#data-item .image-list .image-list .div-image {
+				width: 1.4rem;
+				height: 1.4rem;
+				background-position: center;
+				background-repeat: no-repeat;
+				background-size: cover;
+				background-color: #6641E2;
+			}
+		</style>
+	</head>
+
+	<body>
+		<script src="js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init()
+		</script>
+		<section id="top">
+			<div id="addImage" style="height: .90rem; width: 1.60rem; float:right ; padding-top: .20rem; position: relative;background-color: red; z-index: 999;">
+				<span style="display: inline-block; margin-right: .20rem;">ADD</span>
+           </div>
+		</section>
+		<section id="data-item">
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell">
+					<div class="title"><img src="images/vip.png" alt="" /><span class="date">6月１日</span></div>
+					<p class="item-description"></p>
+					<ul class="image-list">
+						<li>
+							<div class="div-image"></div>
+						</li>
+						<li>
+							<div class="div-image"></div>
+						</li>
+						<li>
+							<div class="div-image"></div>
+						</li>
+						<li>
+							<div class="div-image"></div>
+						</li>
+
+					</ul>
+				</li>
+				<li class="mui-table-view-cell">Item 2</li>
+				<li class="mui-table-view-cell">Item 3</li>
+			</ul>
+		</section>
+	</body>
+
+	<script type="text/javascript">
+		var remDeviceCount = 640;
+		! function(d) {
+			var c = d.document;
+			var a = c.documentElement;
+			var b = d.devicePixelRatio;
+			var f;
+
+			function e() {
+				var h = a.getBoundingClientRect().width,
+					g;
+				if(b === 1) {
+					h = remDeviceCount
+				}
+				if(h > remDeviceCount) h = remDeviceCount; //设置基准值的极限值
+				g = h / (remDeviceCount * 0.01);
+				a.style.fontSize = g + "px"
+			}
+
+			if(b > 2) {
+				b = 3
+			} else {
+				if(b > 1) {
+					b = 2
+				} else {
+					b = 1
+				}
+			}
+			a.setAttribute("data-dpr", b);
+			d.addEventListener("resize", function() {
+				clearTimeout(f);
+				f = setTimeout(e, 200)
+			}, false);
+			e()
+		}(window);
+	</script>
+
+</html>

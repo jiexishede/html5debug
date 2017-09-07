@@ -1,0 +1,206 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<!--<link rel="stylesheet" type="text/css" href="css/init.min.css" />-->
+		<style type="text/css">
+			.mui-icon-star {
+				color: blue;
+			}
+			
+			.mui-table-view-cell {
+				height: 2.3rem;
+				padding-top: 0.5rem;
+				padding-bottom: 0.5rem;
+				padding-left: 0.4rem;
+			}
+			
+			.rowHeader {
+				width: 1.25rem;
+				height: 1.25rem;
+				border-radius: 0.625rem;
+			}
+			
+			.rowHeader {
+				display: inline-block;
+			}
+			
+			.row {
+				display: block;
+				background-color: #FFFFFF;
+				position: relative;
+				padding-left: .3rem;
+				padding-top: .5rem;
+				height: 2.3rem;
+				font-size: 0;
+			}
+			
+			.row::after {
+				position: absolute;
+				bottom: 0;
+				right: 0;
+				left: 0;
+				height: .04rem;
+				content: '';
+				-webkit-transform: scaleY(.5);
+				transform: scaleY(.5);
+				background-color: #c8c7cc;
+			}
+			
+			.row span {
+				display: inline-block;
+				line-height: 0.50rem;
+			}
+			
+			.row .row-content {
+				display: inline-block;
+				margin-left: 0.3rem;
+				vertical-align: top;
+				height: 1.3rem;
+			}
+			
+			.row .name {
+				font-size: .30rem;
+				color: #303030;
+			}
+			
+			.row .degree {
+				color: #CCCCCC;
+				font-size: .30rem;
+				margin-left: .2rem;
+			}
+			
+			.row .hospital {
+				color: #CCCCCC;
+				font-size: .30rem;
+			}
+			
+			.row .office {
+				color: #CCCCCC;
+				font-size: .30rem;
+				margin-left: .2rem;
+			}
+			
+			.mui-table-view {
+				margin-bottom: 0.3rem;
+			}
+		</style>
+	</head>
+
+	<body>
+		<script src="js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init()
+		</script>
+
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">随访团队</h1>
+		</header>
+		<div class="mui-content">
+
+			<ul id="list" class="mui-table-view">
+				<li class="mui-table-view-cell row">
+					<img class="rowHeader" src="image/hometop.jpg"></img>
+					<div class="row-content">
+						<div>
+							<span class="name">张俊祥</span> <span class="degree">主治医师</span>
+						</div>
+						<div>
+							<span class="hospital">北京解放军307医院</span> <span class="office">肿瘤科</span>
+						</div>
+					</div>
+				</li>
+				<li class="mui-table-view-cell row">
+					<img class="rowHeader" src="image/hometop.jpg"></img>
+					<div class="row-content">
+						<div>
+							<span class="name">张俊祥</span> <span class="degree">主治医师</span>
+						</div>
+						<div>
+							<span class="hospital">北京解放军307医院</span> <span class="office">肿瘤科</span>
+						</div>
+					</div>
+				</li>
+				<li class="mui-table-view-cell row">
+					<img class="rowHeader" src="image/hometop.jpg"></img>
+					<div class="row-content">
+						<div>
+							<span class="name">张俊祥</span> <span class="degree">主治医师</span>
+						</div>
+						<div>
+							<span class="hospital">北京解放军307医院</span> <span class="office">肿瘤科</span>
+						</div>
+					</div>
+				</li>
+			</ul>
+
+			<ul id="list" class="mui-table-view">
+				<li class="mui-table-view-cell row">
+					<img class="rowHeader" src="image/hometop.jpg"></img>
+					<div class="row-content">
+						<div>
+							<span class="name">翳安医学顾问</span>
+						</div>
+						<div>
+							<span class="hospital">翳安金牌医学顾问</span>
+						</div>
+					</div>
+				</li>
+				<li class="mui-table-view-cell row">
+					<img class="rowHeader" src="image/hometop.jpg"></img>
+					<div class="row-content">
+						<div>
+							<span class="name">张俊祥</span>
+						</div>
+						<div>
+							<span class="hospital">北京解放军307医院</span>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+
+	</body>
+
+	<script type="text/javascript">
+		! function(d) {
+			var c = d.document;
+			var a = c.documentElement;
+			var b = d.devicePixelRatio;
+			var f;
+
+			function e() {
+				var h = a.getBoundingClientRect().width,
+					g;
+				if(b === 1) {
+					h = 720
+				}
+				if(h > 720) h = 720; //设置基准值的极限值
+				g = h / 7.2;
+				a.style.fontSize = g + "px"
+			}
+
+			if(b > 2) {
+				b = 3
+			} else {
+				if(b > 1) {
+					b = 2
+				} else {
+					b = 1
+				}
+			}
+			a.setAttribute("data-dpr", b);
+			d.addEventListener("resize", function() {
+				clearTimeout(f);
+				f = setTimeout(e, 200)
+			}, false);
+			e()
+		}(window);
+	</script>
+
+</html>
